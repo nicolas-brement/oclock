@@ -1,13 +1,14 @@
 <head>
     <meta charset="utf-8">
     <title>Projet Oclock</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="shortcut icon" href="images/planet.png">
+    <link rel="shortcut icon" href="">
 </head>
 
 <body>
+<section>
 <!-- Minuteur -->
 <h2>Minuteur</h2>
 <div id="timer">
@@ -16,7 +17,7 @@
     <button id="startBtn">Start/Stop</button>
     <button id="resetBtn">Reset</button>
 </div>
-
+</section>
 <!--
 <div>
     <label for="timeInput">Temps en minutes:</label>
@@ -27,7 +28,7 @@
 </div>
 -->
 
-
+<section>
 <!-- Chronomètre -->
 <h2>Chronomètre</h2>
 
@@ -45,6 +46,17 @@
 
 <ul id="laps">
 </ul>
+</section>
+
+<section>
+<!-- Horloge -->
+<h2>Horloge</h2>
+<div id="clock">
+    <p id="hour"></p> :
+    <p id="minute"></p> :
+    <p id="second"></p>
+</div>
+</section>
 
 </body>
 </html>

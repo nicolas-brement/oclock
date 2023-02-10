@@ -1,4 +1,4 @@
-// Minuteur
+//                                                  MINUTEUR
 let intervalId;
 let remainingTime = 0;
 let running = false;
@@ -47,13 +47,12 @@ document.querySelector('#resetBtn').addEventListener('click', resetTimer);
 
 
 
-// Chronomètre
+//                                                  CHRONOMETRE
 let minutesDisplay2 = 0;
 let secondsDisplay2 = 0;
 let millisecondsDisplay2 = 0;
 let intervalId2;
 let started2 = false;
-let stopped2 = false;
 let lapTimes = [];
 
 document.getElementById("startButton2").addEventListener("click", function() {
@@ -109,12 +108,18 @@ function lapTimer2() {
     document.getElementById("laps").innerHTML = lapListHTML;
 }
 
-document.getElementById("lapButton").addEventListener("click", function() {
-    let lapTime = document.getElementById("minutesDisplay").innerHTML + ":" + document.getElementById("secondsDisplay").innerHTML + ":" + document.getElementById("millisecondsDisplay").innerHTML;
-    let lapList = document.getElementById("laps");
-    let lapItem = document.createElement("li");
-    lapItem.innerHTML = lapTime;
-    lapList.appendChild(lapItem);
-});
 
+
+
+//                                                  HORLOGE
+const hourDisplay = document.getElementById("hour");
+const minuteDisplay = document.getElementById("minute");
+const secondDisplay = document.getElementById("second");
+
+setInterval(() => {
+    const date = new Date();
+    hourDisplay.textContent = date.getUTCHours() + 1;
+    minuteDisplay.textContent = date.getUTCMinutes();
+    secondDisplay.textContent = date.getUTCSeconds();
+}, 1000);
 
