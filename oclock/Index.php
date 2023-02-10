@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>Portfolio - Nicolas Brement</title>
+    <title>Projet Oclock</title>
     <link rel="stylesheet" href="style2.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -36,10 +36,15 @@
     <p id="secondsDisplay2">0</p> :
     <p id="millisecondsDisplay2">0</p>
 </div>
+<ul id="temps">
+</ul>
+
 <button id="startButton2">Start</button>
-<button id="stopButton2">Stop</button>
-<button id="resumeButton2">Reprendre</button>
 <button id="resetButton2">Reset</button>
+<button id="lapButton2">Tour</button>
+
+<ul id="laps">
+</ul>
 
 </body>
 </html>

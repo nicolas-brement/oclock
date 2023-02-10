@@ -54,17 +54,19 @@ let millisecondsDisplay2 = 0;
 let intervalId2;
 let started2 = false;
 let stopped2 = false;
+let lapTimes = [];
 
 document.getElementById("startButton2").addEventListener("click", function() {
     if (!started2) {
         intervalId2 = setInterval(startTimer2, 10);
         started2 = true;
+    } else {
+        stopTimer2();
     }
 });
 
-document.getElementById("stopButton2").addEventListener("click", stopTimer2);
 document.getElementById("resetButton2").addEventListener("click", resetTimer2);
-document.getElementById("resumeButton2").addEventListener("click", resumeTimer2);
+document.getElementById("lapButton2").addEventListener("click", lapTimer2);
 
 function startTimer2() {
     millisecondsDisplay2++;
@@ -84,7 +86,6 @@ function startTimer2() {
 function stopTimer2() {
     clearInterval(intervalId2);
     started2 = false;
-    stopped2 = true;
 }
 
 function resetTimer2() {
@@ -94,13 +95,26 @@ function resetTimer2() {
     document.getElementById("minutesDisplay2").innerHTML = minutesDisplay2;
     document.getElementById("secondsDisplay2").innerHTML = secondsDisplay2;
     document.getElementById("millisecondsDisplay2").innerHTML = millisecondsDisplay2;
+    lapTimes = [];
+    document.getElementById("laps").innerHTML = "";
     clearInterval(intervalId2);
 }
 
-function resumeTimer2() {
-    if (!started2 && stopped2) {
-        intervalId2 = setInterval(startTimer2, 10);
-        started2 = true;
-        stopped2 = false;
+function lapTimer2() {
+    lapTimes.push(`${minutesDisplay2}:${secondsDisplay2}:${millisecondsDisplay2}`);
+    let lapListHTML = "";
+    for (let i = 0; i < lapTimes.length; i++) {
+        lapListHTML += "<li>" + lapTimes[i] + "</li>";
     }
+    document.getElementById("laps").innerHTML = lapListHTML;
 }
+
+document.getElementById("lapButton").addEventListener("click", function() {
+    let lapTime = document.getElementById("minutesDisplay").innerHTML + ":" + document.getElementById("secondsDisplay").innerHTML + ":" + document.getElementById("millisecondsDisplay").innerHTML;
+    let lapList = document.getElementById("laps");
+    let lapItem = document.createElement("li");
+    lapItem.innerHTML = lapTime;
+    lapList.appendChild(lapItem);
+});
+
+
